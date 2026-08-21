@@ -88,6 +88,12 @@ allprojects {
         implementation "dev.babbaj:nether-pathfinder:${project.nether_pathfinder_version}"
 
         implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
+        // FIX: them 2 dong nay de bien dich duoc 3 file Fabric-specific
+        // (BaritoneFabricClient, AutoBuildKeybind, AutoBuildHud) ngay tai
+        // src/main goc, khong can doi sang module fabric/ rieng.
+        compileOnly "net.fabricmc:fabric-loader:${project.fabric_version}"
+        compileOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     }
 
     unimined.minecraft(sourceSets.main, true) {
